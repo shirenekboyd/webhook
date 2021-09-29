@@ -16,15 +16,14 @@ const fastify = require("fastify")({
 // fastify-formbody lets us parse incoming forms
 fastify.register(require("fastify-formbody"));
 
-fastify.register(require('fastify-cors'), {
-  origin: ['/\.silashop\.com/', '/\.silashop\.co\.il/']
+
+fastify.register(require("fastify-cors"), {
+  origin: /^.*?\.silashop\.(com|co\.il)$/,
+  methods: ["GET"]
 });
 
-/**
- * 
- */
 fastify.get("/hello", function(request, reply) {
-  return { hello: 'world' };
+  reply.send({ hello: 'world' });
 });
 
 // Run the server and report out to the logs

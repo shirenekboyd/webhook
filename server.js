@@ -1,19 +1,20 @@
-
-const path = require("path");
-
+const path = require("path");;
+const autoload = require('fastify-autoload');
+const formbody = require("fastify-formbody");
+const cors = require("fastify-cors");
 const fastify = require("fastify")({
   logger: true
 });
 
-fastify.register(require("fastify-formbody"));
+fastify.register(autoload, {
+  dir: path.join(__dirname, 'routes')
+});
 
-fastify.register(require("fastify-cors"), {
+fastify.register(cors, {
   origin: /^.*?\.silashop\.(com|co\.il)$/
 });
 
-fastify.get("/hello", function(request, reply) {
-  reply.send({ hello: 'world' });
-});
+fastify.register(formbody);
 
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, function(err, address) {

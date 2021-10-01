@@ -1,11 +1,7 @@
 async function routes(fastify, options){
-    fastify.get('/', async function(request, reply) {
-         return {hello: 'world'} 
-    }), 
-
-    fastify.get('/bye', async function(request, reply) {
-         return {bye: 'good bye'} 
-    }) 
+    fastify.post('/subscribe-to-availability', async function(request, reply) {
+         return {email: request.body.email, productSKU: request.body.productSKU};
+    });
 }
 
 module.exports = routes;

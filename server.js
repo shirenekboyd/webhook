@@ -1,6 +1,5 @@
 const path = require("path");;
 const autoload = require('fastify-autoload');
-const formbody = require("fastify-formbody");
 const cors = require("fastify-cors");
 const fastify = require("fastify")({
   logger: true
@@ -13,8 +12,6 @@ fastify.register(autoload, {
 fastify.register(cors, {
   origin: /^.*?\.silashop\.(com|co\.il)$/
 });
-
-fastify.register(formbody);
 
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, function(err, address) {

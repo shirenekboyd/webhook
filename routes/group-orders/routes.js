@@ -5,7 +5,9 @@ async function routes(fastify, options) {
         const email = request.body.email;
         const productSKU = request.body.productSKU;
         const listName = `Group Order Notification - SKU ${productSKU}`;
+      console.log('getting contact by email');
         const getContactPromise = sendGrid.getContactByEmail(email);
+      console.log('getting list by name');
         const getListPromise = sendGrid.getListByName(listName).then((list) => {
             return list || sendGrid.createList(listName);
         });

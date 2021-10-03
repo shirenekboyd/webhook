@@ -20,7 +20,7 @@ function getContactByEmail(email) {
         method: 'POST',
         url: '/marketing/contacts/search/emails',
         body: {
-            email
+            emails: [email]
         }
     }).then(([response, body]) => {
         if (response.statusCode === 404) {

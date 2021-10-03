@@ -1,18 +1,32 @@
-const client = require('@sendgrid/client');
-client.setApiKey(process.env.SENDGRID_API_KEY);
-const request = {
-  method: 'GET',
-  url: '/v3/'
-};
-client.request(request)
-.then(([response, body]) => {
-  console.log(response.statusCode);
-  console.log(body);
-})
+const sendGrid = require('../../external-services/sendgrid');
 
-async function routes(fastify, options){
+async function routes(fastify, options) {
     fastify.post('/subscribe-to-availability', async function(request, reply) {
-         return {email: request.body.email, productSKU: request.body.productSKU};
+        const email = request.body.email;
+        const productSKU = request.body.productSKU;
+        const listName = `Group Order Notification - SKU ${productSKU}`;
+        const getContactPromise = sendGrid.getContactByEmail(email);
+        const getListPromise = sendGrid.getListByName(listName).then((list) => {
+            return list || sendGrid.createList(listName);
+        });
+
+        Promise.all([getContactPromise, getListPromise]).then(([contact, list]) => {
+            if (list.id && contact) {
+                if (contact.list_ids.find((id) => id === list.id)) {
+                    return;
+                }
+            }
+
+            if (!contact) {
+                contact = {
+                    email,
+                    list_ids: []
+                };
+            }
+
+            contact.list_ids.push(list.id);
+            sendGrid.upsertContact(contact);
+        });
     });
 }
 

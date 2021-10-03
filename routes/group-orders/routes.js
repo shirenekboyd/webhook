@@ -28,7 +28,7 @@ async function routes(fastify, options) {
 
             contact.list_ids.push(list.id);
             sendGrid.upsertContact(contact);
-        });
+        }).catch((reason) => console.log('SendGrid requests failed.', reason));
     });
 }
 

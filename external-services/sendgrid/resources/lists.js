@@ -4,13 +4,11 @@ function createList(name) {
     return sendGrid.request({
         method: 'POST',
         url: '/marketing/lists',
-        data: {
+        body: {
             name
         }
-    }).then((result) => {
-        if (result) {
-            return result[1].result;
-        }
+    }).then(([_, body]) => {
+        return body;
     });
 }
 

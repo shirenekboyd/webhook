@@ -9,7 +9,7 @@ function getAllLists() {
             throw new Error('Get All Lists request failed!');
         }
 
-        return response.result;
+        return body.result;
     });
 }
 

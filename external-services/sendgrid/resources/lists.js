@@ -1,5 +1,15 @@
 const sendGrid = require('../sendgrid-client-proxy');
 
+function createList(name) {
+    return sendGrid.request({
+        method: 'POST',
+        url: '/marketing/lists',
+        data: {
+            name
+        }
+    });
+}
+
 function getAllLists() {
     return sendGrid.request({
         method: 'GET',
@@ -20,6 +30,7 @@ function getListByName(listName) {
 }
 
 module.exports = {
+    createList,
     getAllLists,
     getListByName
 };

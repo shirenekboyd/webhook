@@ -7,7 +7,9 @@ const sendGridProxy = {
     request: function request(options) {
         options.url = `${API_VERSION}${options.url}`;
 
-        return sendGridClient.request(options);
+        return sendGridClient.request(options).catch((error) => {
+            console.log(error);
+        });
     }
 }
 

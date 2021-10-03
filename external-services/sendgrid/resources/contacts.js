@@ -1,9 +1,18 @@
 const sendGrid = require('../sendgrid-client-proxy');
 
-function createContact(email) {
+function upsertContact(contact) {
+    return upsertContacts([contact], contact.list_ids);
+}
+
+function upsertContacts(contacts, listIDs) {
     return sendGrid.request({
-        method: ''
-    })
+        method: 'PUT',
+        url: '/marketing/contacts',
+        data: {
+            contacts,
+            list_ids: listIDs
+        }
+    });
 }
 
 function getContactByEmail(email) {
@@ -25,5 +34,6 @@ function getContactByEmail(email) {
 }
 
 module.exports = {
+    upsertContact,
     getContactByEmail
-}
+};

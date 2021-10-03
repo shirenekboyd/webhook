@@ -7,6 +7,10 @@ function createList(name) {
         data: {
             name
         }
+    }).then((result) => {
+        if (result) {
+            return result[1].result;
+        }
     });
 }
 

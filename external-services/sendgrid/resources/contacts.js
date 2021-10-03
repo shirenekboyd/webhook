@@ -22,15 +22,15 @@ function getContactByEmail(email) {
         body: {
             emails: [email]
         }
-    }).then(([response, body]) => {
-        if (response.statusCode === 404) {
+    }).then((result) => {
+        if (!result) {
             return;
-        } else if (response.statusCode === 200) {
-            return body.result[email].contact;
         } else {
-            throw new Error('Search Emails request failed!');
+            const body = result[1];
+
+            return body.result[email].contact;
         }
-    }, (reason) => console.log(reason));
+    });
 }
 
 module.exports = {

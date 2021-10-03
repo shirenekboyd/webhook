@@ -30,7 +30,7 @@ function getContactByEmail(email) {
         } else {
             throw new Error('Search Emails request failed!');
         }
-    });
+    }, (reason) => console.log(reason));
 }
 
 module.exports = {

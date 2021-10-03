@@ -2,7 +2,7 @@ const client = require('@sendgrid/client');
 client.setApiKey(process.env.SENDGRID_API_KEY);
 const request = {
   method: 'GET',
-  url: '/v3/api_keys'
+  url: '/v3/'
 };
 client.request(request)
 .then(([response, body]) => {

@@ -8,7 +8,7 @@ function upsertContacts(contacts, listIDs) {
     return sendGrid.request({
         method: 'PUT',
         url: '/marketing/contacts',
-        data: {
+        body: {
             contacts,
             list_ids: listIDs
         }

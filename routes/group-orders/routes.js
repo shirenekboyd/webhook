@@ -1,6 +1,6 @@
 const sendGrid = require('../../external-services/sendgrid');
 
-async function routes(fastify, options) {
+function routes(fastify, options) {
     fastify.post('/subscribe-to-availability', async function(request, reply) {
         const email = request.body.email;
         const productSKU = request.body.productSKU;

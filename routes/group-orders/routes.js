@@ -1,11 +1,13 @@
 const sendGrid = require('../../external-services/sendgrid');
 
 async function routes(fastify, options) {
-    fastify.post('/subscribe-to-availability', function(request, reply) {
+    fastify.post('/subscribe-to-availability', async function(request, reply) {
         const email = request.body.email;
         const productSKU = request.body.productSKU;
         const listName = `Group Order Notification - SKU ${productSKU}`;
+      console.log('getting contact by email');
         const getContactPromise = sendGrid.getContactByEmail(email);
+      console.log('getting list by name');
         const getListPromise = sendGrid.getListByName(listName).then((list) => {
             return list || sendGrid.createList(listName);
         });
@@ -27,7 +29,7 @@ async function routes(fastify, options) {
             contact.list_ids.push(list.id);
             sendGrid.upsertContact(contact);
         }).catch((reason) => console.log('SendGrid requests failed.', reason));
-      
+
         reply.send({});
     });
 }

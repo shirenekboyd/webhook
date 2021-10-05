@@ -1,7 +1,7 @@
 const sendGrid = require('../../external-services/sendgrid');
 
 async function routes(fastify, options) {
-    fastify.post('/subscribe-to-product', async function(request, reply) {
+    fastify.post('/subscribe-to-product', function(request, reply) {
         const email = request.body.email;
         const productSKU = request.body.productSKU;
         const listName = `Group Order Notification - SKU ${productSKU}`;

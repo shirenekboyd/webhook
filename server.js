@@ -10,7 +10,7 @@ fastify.register(autoload, {
 });
 
 fastify.register(cors, {
-  origin: [/^.*?\.silashop\.(com|co\.il)$/, /^.*?\.zapier\.com$/]
+  origin: /^.*?\.silashop\.(com|co\.il)$/
 });
 
 // Run the server and report out to the logs

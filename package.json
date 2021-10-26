@@ -13,7 +13,8 @@
     "@sendgrid/mail": "^7.4.6",
     "@sendgrid/client": "^7.4.6",
     "fastify-autoload": "^3.9.0",
-    "node-html-parser": "^5.0.0"
+    "node-html-parser": "^5.0.0",
+    "xlsx": "^0.17.3"
   },
   "engines": {
     "node": "12.x"

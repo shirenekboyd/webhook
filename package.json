@@ -1,5 +1,5 @@
 {
-  "name": "hello-node",
+  "name": "sila-server",
   "version": "0.0.1",
   "description": "A simple Node app built on fastify, instantly up and running.",
   "main": "server.js",
@@ -15,7 +15,8 @@
     "fastify-autoload": "^3.9.0",
     "node-html-parser": "^5.0.0",
     "xlsx-workbook": "^1.0.3",
-    "xlsx": "^0.17.3"
+    "xlsx": "^0.17.3",
+    "@googleapis/drive": "^0.3.1"
   },
   "engines": {
     "node": "12.x"

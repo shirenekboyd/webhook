@@ -1,5 +1,4 @@
 const HTMLParser = require('node-html-parser');
-const XLSX = require('xlsx');
 var Workbook = require('xlsx-workbook').Workbook;
  
 var workbook = new Workbook();
@@ -35,8 +34,7 @@ async function routes(fastify, options) {
 		orderSummarySheet[0][1] = 'Blu Energy Drink';
 		orderSummarySheet[1][0] = 'OID12';
 		orderSummarySheet[1][1] = 'Cool Prod';
-
-		XLSX.write(workbook, 'Group Order Seller');
+      workbook.save('test');
 
         reply.send({});
     });

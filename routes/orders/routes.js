@@ -1,4 +1,5 @@
 const HTMLParser = require('node-html-parser');
+var xlsx = require('xlsx');
 var Workbook = require('xlsx-workbook').Workbook;
  
 var workbook = new Workbook();
@@ -34,7 +35,9 @@ async function routes(fastify, options) {
 		orderSummarySheet[0][1] = 'Blu Energy Drink';
 		orderSummarySheet[1][0] = 'OID12';
 		orderSummarySheet[1][1] = 'Cool Prod';
-      workbook.save('test');
+      // workbook.save('test');
+      
+      console.log(xlsx.writeFile(workbook.objectify(), 'test.xlsx', {bookType:'xlsx', bookSST:true, type: 'binary'}));
 
         reply.send({});
     });

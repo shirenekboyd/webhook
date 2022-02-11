@@ -1,7 +1,5 @@
 dependencies:
   '@googleapis/drive': 0.3.1
-  '@sendgrid/client': 7.5.0
-  '@sendgrid/mail': 7.5.0
   fastify: 3.22.1
   fastify-autoload: 3.9.0
   fastify-cors: 6.0.2
@@ -24,32 +22,6 @@ packages:
       node: '>=10.0.0'
     resolution:
       integrity: sha512-LYsxWMHFt2Z7kdO16EE6jVP07Qq141hmZHHuFvljWLVo7EBtiPCgzrkjJe03Q7wNs28rnFe0jlIDiBZYT0tnmA==
-  /@sendgrid/client/7.5.0:
-    dependencies:
-      '@sendgrid/helpers': 7.5.0
-      axios: 0.21.4
-    dev: false
-    engines:
-      node: 6.* || 8.* || >=10.*
-    resolution:
-      integrity: sha512-tu2l3a1Egp65hRsDdX6qUHvpZydZvgEL7PLViQh4uu5DTqztpNCyw0UQYkyPYyXInWJjLax12UOciTG2V/s4OQ==
-  /@sendgrid/helpers/7.5.0:
-    dependencies:
-      deepmerge: 4.2.2
-    dev: false
-    engines:
-      node: '>= 6.0.0'
-    resolution:
-      integrity: sha512-uzCzpougTDKifyVksx5obZtMcEypq7UVAon/FLurrGEncGrx/N4bYDGPo4chmEdHAZvN75fpavyfETx3DZYebg==
-  /@sendgrid/mail/7.5.0:
-    dependencies:
-      '@sendgrid/client': 7.5.0
-      '@sendgrid/helpers': 7.5.0
-    dev: false
-    engines:
-      node: 6.* || 8.* || >=10.*
-    resolution:
-      integrity: sha512-/JEQJagigZreHsApOdFdZC2ZtSwaQY5Kvjj29a3BUrx8bEX0bQUlBjlIVQkrxpkgzTvTQgR3kaRzX6BoLiS44A==
   /abort-controller/3.0.0:
     dependencies:
       event-target-shim: 5.0.1
@@ -131,12 +103,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-XW2CMCmZaCmCCsIaJaLKxAzPwF37fXi1KGxNOvedOpeisLdmxZnblGc3hpHWYnlP+KOUxZsazh43WXNHgXpbqw==
-  /axios/0.21.4:
-    dependencies:
-      follow-redirects: 1.14.5
-    dev: false
-    resolution:
-      integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
   /base64-js/1.5.1:
     dev: false
     resolution:
@@ -423,12 +389,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4zPxDyhCyiN2wIAtSLI6gc82/EjqZc1onI4Mz/l0pWrAlsSfYH/2ZIcU+e3oA2wDwbzIWNKwa23F8rh6+DRWkw==
-  /follow-redirects/1.14.5:
-    dev: false
-    engines:
-      node: '>=4.0'
-    resolution:
-      integrity: sha512-wtphSXy7d4/OR+MvIFbCVBDzZ5520qV8XfPklSN5QtxuMUJZ+b0Wnst1e1lCDocfzuCkHqj8k0FpZqO+UIaKNA==
   /forwarded/0.2.0:
     dev: false
     engines:
@@ -964,8 +924,6 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   '@googleapis/drive': ^0.3.1
-  '@sendgrid/client': ^7.4.6
-  '@sendgrid/mail': ^7.4.6
   fastify: ^3.14.1
   fastify-autoload: ^3.9.0
   fastify-cors: ^6.0.2

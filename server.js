@@ -5,13 +5,23 @@ const fastify = require("fastify")({
   logger: true
 });
 
-fastify.register(autoload, {
-  dir: path.join(__dirname, 'routes')
-});
 
-fastify.register(cors, {
-  origin: /^.*?\.silashop\.(com|co\.il)$/
-});
+fastify.route({
+  method: 'POST',
+  url: '/olark',
+  schema: {
+    response: {
+      200: {
+        type: 'string'
+      }
+    }
+  },
+  
+  handler: async (request, reply) => {
+    /* your code here */
+    return 'pizza time!'
+  }
+})
 
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, function(err, address) {

@@ -1,27 +1,17 @@
-const path = require("path");;
-const autoload = require('fastify-autoload');
-const cors = require("fastify-cors");
 const fastify = require("fastify")({
   logger: true
 });
+fastify.register(require('fastify-formbody'))
 
 
 fastify.route({
   method: 'POST',
   url: '/olark',
-  schema: {
-    response: {
-      200: {
-        type: 'string'
-      }
-    }
-  },
-  
-  handler: async (request, reply) => {
+  handler: function (request, reply) {
     /* your code here */
-    return 'pizza time!'
+    return 'pizza time!';
   }
-})
+});
 
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, function(err, address) {

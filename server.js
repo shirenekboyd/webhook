@@ -1,15 +1,18 @@
+
 const fastify = require("fastify")({
   logger: true
 });
-fastify.register(require('fastify-formbody'))
+
+
+fastify.register(require('fastify-formbody'));
 
 
 fastify.route({
   method: 'POST',
-  url: '/olark/webhook',
+  url: '/olark',
   handler: function (request, reply) {
     /* your code here */
-    return '{status: true}';
+    return {'status': 'no pizza', 'integrationUrl': undefined};
   }
 });
 

@@ -6,10 +6,10 @@ fastify.register(require('fastify-formbody'))
 
 fastify.route({
   method: 'POST',
-  url: '/olark',
+  url: '/olark/webhook',
   handler: function (request, reply) {
     /* your code here */
-    return 'pizza time!';
+    return '{status: true}';
   }
 });
 

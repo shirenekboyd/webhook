@@ -12,7 +12,7 @@ fastify.route({
   url: '/olark',
   handler: function (request, reply) {
     /* your code here */
-    console.log("request", request);
+    reply.send({})
     return {'status': 'no pizza', 'integrationUrl': undefined};
   }
 });
